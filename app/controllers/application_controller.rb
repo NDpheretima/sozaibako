@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:top, :about] #未ログインでアクセス可能
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    user_path(current_user) # ログイン後、ユーザー詳細ページに遷移
+  end
+
   protected
 
   def configure_permitted_parameters
