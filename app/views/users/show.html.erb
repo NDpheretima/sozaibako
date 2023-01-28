@@ -30,9 +30,12 @@
                   <tbody>
                     <% @artworks_illustration.each do |illustration| %>
                       <tr>
-                        <th>
+                        <td>
                           <%= image_tag illustration.illustration_file.url, size: '100x100' %>
-                        </th>
+                        </td>
+                        <td>
+                          <%= link_to "編集", illustration_edit_path(illustration.id), class:"btn btn-sm btn-success" %>
+                        </td>
                       </tr>
                     <% end %>
                   </tbody>
@@ -51,9 +54,12 @@
                   <tbody>
                     <% @artworks_music.each do |music| %>
                       <tr>
-                        <th>
+                        <td>
                           <%= audio_tag music.music_file.url, controls: "controls", controlslist: "nodownload" %>
-                        </th>
+                        </td>
+                        <td>
+                          <%= link_to "編集", music_edit_path(music.id), class:"btn btn-sm btn-success" %>
+                        </td>
                       </tr>
                     <% end %>
                   </tbody>

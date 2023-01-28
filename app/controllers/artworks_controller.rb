@@ -14,13 +14,21 @@ class ArtworksController < ApplicationController
     artwork = Artwork.new(artwork_params)
     artwork.user_id = current_user.id
     artwork.save
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(artwork.id)
   end
 
-  def edit
+  def illustration_edit
+    @artwork = Artwork.find(params[:id])
+  end
+
+  def music_edit
+    @artwork = Artwork.find(params[:id])
   end
 
   def update
+    artwork = Artwork.find(params[:id])
+    artwork.update(artwork_params)
+    redirect_to user_path(artwork.user_id)
   end
 
   def destroy
