@@ -1,10 +1,10 @@
 class ArtworksController < ApplicationController
   def illustration_new
-    @artwork = Artwork.new(category: "illustration")
+    @artwork = Artwork.new
   end
 
   def music_new
-    @artwork = Artwork.new(category: "music")
+    @artwork = Artwork.new
   end
 
   def show

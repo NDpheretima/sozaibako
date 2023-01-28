@@ -28,13 +28,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <% @artworks_illustration.each do |illustration| %>
+                    <% @artworks_illustration.each do |illustration| %>
+                      <tr>
                         <th>
                           <%= image_tag illustration.illustration_file.url, size: '100x100' %>
                         </th>
-                      <% end %>
-                    </tr>
+                      </tr>
+                    <% end %>
                   </tbody>
                 </table>
               </div>
@@ -48,7 +48,15 @@
                       <th colspan="3"></th>
                     </tr>
                   </thead>
-                  <tbody></tbody>
+                  <tbody>
+                    <% @artworks_music.each do |music| %>
+                      <tr>
+                        <th>
+                          <%= audio_tag music.music_file.url, controls: "controls", controlslist: "nodownload" %>
+                        </th>
+                      </tr>
+                    <% end %>
+                  </tbody>
                 </table>
               </div>
             </div>

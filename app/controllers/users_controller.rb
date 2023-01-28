@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @artworks_illustration = Artwork.where(user_id: @user.id).where(category: "illustration")
+    @artworks_music = Artwork.where(user_id: @user.id).where(category: "music")
   end
 
   def edit
