@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get 'artwork/:id/illustration_edit', to: 'artworks#illustration_edit', as: 'illustration_edit'
   get 'artwork/:id/music_edit', to: 'artworks#music_edit', as: 'music_edit'
 
+  get 'artwork/:id/illustration_download', to: 'artworks#illustration_download', as: 'illustration_download'
+  get 'artwork/:id/music_download', to: 'artworks#music_download', as: 'music_download'
+
   resources :users, only: [:show, :edit, :update]
   resources :artworks, only: [:create, :update]
 end

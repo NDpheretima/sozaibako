@@ -39,6 +39,20 @@ class ArtworksController < ApplicationController
   def destroy
   end
 
+  def illustration_download
+    @artwork = Artwork.find(params[:id])
+    filepath = @artwork.illustration_file.current_path
+    stat = File::stat(filepath)
+    send_file(filepath, :filename => @artwork.illustration_file_identifier, :length => stat.size)
+  end
+
+  def music_download
+    @artwork = Artwork.find(params[:id])
+    filepath = @artwork.music_file.current_path
+    stat = File::stat(filepath)
+    send_file(filepath, :filename => @artwork.music_file_identifier, :length => stat.size)
+  end
+
   private
 
   def artwork_params

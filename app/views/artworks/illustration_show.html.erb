@@ -20,6 +20,7 @@
                 <% if illustration.user_id == current_user.id %>
                   <%= link_to "編集", illustration_edit_path(illustration.id), class:"btn btn-sm btn-success" %>
                 <% end %>
+                <%= link_to "ダウンロード", illustration_download_path(illustration.id), class:"btn btn-sm btn-success" %>
               <% end %>
             </td>
           </tr>

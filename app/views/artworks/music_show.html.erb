@@ -1,29 +1,30 @@
 <main>
   <h2>音楽素材</h2>
     <table class='table table-hover table-inverse'>
-    <thead>
-      <tr>
-        <th></th>
-        <th>音楽タイトル</th>
-        <th>コメント</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @artworks_music.each do |music| %>
+      <thead>
         <tr>
-          <td>
-            <%= audio_tag music.music_file.url, controls: "controls", controlslist: "nodownload" %>
-          </td>
-          <td>
-            <% if user_signed_in? %>
-              <% if music.user_id == current_user.id %>
-                <%= link_to "編集", music_edit_path(music.id), class:"btn btn-sm btn-success" %>
-              <% end %>
-            <% end %>
-          </td>
+          <th></th>
+          <th>音楽タイトル</th>
+          <th>コメント</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @artworks_music.each do |music| %>
+          <tr>
+            <td>
+              <%= audio_tag music.music_file.url, controls: "controls", controlslist: "nodownload" %>
+            </td>
+            <td>
+              <% if user_signed_in? %>
+                <% if music.user_id == current_user.id %>
+                  <%= link_to "編集", music_edit_path(music.id), class:"btn btn-sm btn-success" %>
+                <% end %>
+                <%= link_to "ダウンロード", music_download_path(music.id), class:"btn btn-sm btn-success" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 </main>

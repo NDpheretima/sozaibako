@@ -8,7 +8,7 @@
 
         <%= form_with model:@artwork, local:true do |f| %>
           <div class="form-group">
-            <label for="music_file">ファイル</label>
+            <label for="music_file">ファイル(.mp3 .wav)</label>
             <%= f.file_field :music_file, class:"form-control-file music_file" %>
           </div>
           <div class="form-group">
