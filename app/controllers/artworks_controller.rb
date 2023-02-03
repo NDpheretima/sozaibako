@@ -7,7 +7,12 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new
   end
 
-  def show
+  def illustration_show
+    @artworks_illustration = Artwork.where(category: "illustration")
+  end
+  
+  def music_show
+    @artworks_music = Artwork.where(category: "music")
   end
 
   def create

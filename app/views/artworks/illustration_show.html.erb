@@ -1,0 +1,29 @@
+<main>
+  <h2>イラスト素材</h2>
+    <table class='table table-hover table-inverse'>
+      <thead>
+        <tr>
+          <th></th>
+          <th>イラストタイトル</th>
+          <th>コメント</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @artworks_illustration.each do |illustration| %>
+          <tr>
+            <td>
+              <%= image_tag illustration.illustration_file.url, size: '100x100' %>
+            </td>
+            <td>
+              <% if user_signed_in? %>
+                <% if illustration.user_id == current_user.id %>
+                  <%= link_to "編集", illustration_edit_path(illustration.id), class:"btn btn-sm btn-success" %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</main>

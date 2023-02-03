@@ -10,52 +10,62 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-          <li>
-             <a class="nav-link text-light" href="/users/<%= current_user.id %>">
-              <i class="fas fa-home"></i>マイページ
-            </a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/home/about">
-              <i class="fas fa-link"></i>利用規約
-            </a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/users">
-              <i class="fas fa-users"></i>Users
-            </a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/books">
-              <i class="fas fa-book-open"></i>Books
-            </a>
-          </li>
-          <li>
-            <a class="nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out">
-              <i class="fas fa-sign-out-alt"></i>ログアウト
-            </a>
-          </li>
-          <% else %>
-          <li>
-            <a class="nav-link text-light" href="/">
-              <i class="fas fa-home"></i>トップ
-            </a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/home/about">
-              <i class="fas fa-link"></i>利用規約
-            </a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/users/sign_up">
-              <i class="fas fa-user-plus"></i>新規登録
-            </a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/users/sign_in">
-              <i class="fas fa-sign-in-alt"></i>ログイン
-            </a>
-          </li>
+            <li>
+              <%= link_to user_path(current_user.id), class:"nav-link text-light" do %>
+                <i class="fas fa-home"></i>マイページ
+              <% end %>
+            </li>
+            <li>
+              <%= link_to home_about_path, class:"nav-link text-light" do %>
+                <i class="fas fa-link"></i>利用規約
+              <% end %>
+            </li>
+            <li>
+              <%= link_to illustration_show_path, class:"nav-link text-light" do %>
+                <i class="fas fa-solid fa-palette"></i>イラスト
+              <% end %>
+            </li>
+            <li>
+              <%= link_to music_show_path, class:"nav-link text-light" do %>
+                <i class="fas fa-solid fa-music"></i>音楽
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light" do %>
+                <i class="fas fa-sign-out-alt"></i>ログアウト
+              <% end %>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to root_path, class:"nav-link text-light" do %>
+                <i class="fas fa-home"></i>トップ
+              <% end %>
+            </li>
+            <li>
+              <%= link_to home_about_path, class:"nav-link text-light" do %>
+                <i class="fas fa-link"></i>利用規約
+              <% end %>
+            </li>
+            <li>
+              <%= link_to illustration_show_path, class:"nav-link text-light" do %>
+                <i class="fas fa-solid fa-palette"></i>イラスト
+              <% end %>
+            </li>
+            <li>
+              <%= link_to music_show_path, class:"nav-link text-light" do %>
+                <i class="fas fa-solid fa-music"></i>音楽
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path, class:"nav-link text-light" do %>
+                <i class="fas fa-user-plus"></i>新規登録
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_session_path, class:"nav-link text-light" do %>
+                <i class="fas fa-sign-in-alt"></i>ログイン
+              <% end %>
+            </li>
           <% end %>
         </ul>
       </div>
