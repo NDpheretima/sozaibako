@@ -7,6 +7,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+     # 本人は編集画面へ、それ以外の人は本人詳細へ
+    if @user.id == current_user.id
+    else
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def update

@@ -70,3 +70,5 @@ gem 'devise'
 gem 'carrierwave'
 
 gem 'audiojs-rails'
+
+gem 'rails-i18n'

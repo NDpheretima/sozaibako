@@ -18,16 +18,28 @@ class ArtworksController < ApplicationController
   def create
     artwork = Artwork.new(artwork_params)
     artwork.user_id = current_user.id
-    artwork.save
-    redirect_to user_path(artwork.id)
+    if artwork.save
+      redirect_to user_path(artwork.user_id)
+    else
+      redirect_to request.referer
+    end
   end
 
   def illustration_edit
     @artwork = Artwork.find(params[:id])
+    if @artwork.user_id == current_user.id
+    else
+      redirect_to user_path(current_user.id)
+    end
+  
   end
 
   def music_edit
     @artwork = Artwork.find(params[:id])
+    if @artwork.user_id == current_user.id
+    else
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def update

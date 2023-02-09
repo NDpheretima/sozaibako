@@ -31,11 +31,11 @@
                 </td>
                 <td>
                   <% if illustration.user.id == current_user.id %>
-                    <%= link_to "削除", artwork_path(illustration.id), method: :delete, class:"btn btn-sm btn-success" %>
+                    <%= link_to "削除", artwork_path(illustration.id), method: :delete, class:"btn btn-sm btn-danger" %>
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to "ダウンロード", illustration_download_path(illustration.id), class:"btn btn-sm btn-success" %>
+                  <%= link_to "ダウンロード", illustration_download_path(illustration.id), class:"btn btn-sm btn-secondary" %>
                 </td>
               <% end %>
           </tr>

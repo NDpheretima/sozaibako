@@ -22,7 +22,7 @@
                     <thead>
                       <tr>
                         <th></th>
-                        <th>イラストタイトル</th>
+                        <th>タイトル</th>
                         <th>コメント</th>
                         <th colspan="3"></th>
                       </tr>
@@ -46,7 +46,7 @@
                           </td>
                           <td>
                             <% if @user.id == current_user.id %>
-                              <%= link_to "削除", artwork_path(illustration.id), method: :delete, class:"btn btn-sm btn-success" %>
+                              <%= link_to "削除", artwork_path(illustration.id), method: :delete, class:"btn btn-sm btn-danger" %>
                             <% end %>
                           </td>
                         </tr>
@@ -59,7 +59,7 @@
                     <thead>
                       <tr>
                         <th></th>
-                        <th>音楽タイトル</th>
+                        <th>タイトル</th>
                         <th>コメント</th>
                         <th colspan="3"></th>
                       </tr>
@@ -83,7 +83,7 @@
                           </td>
                           <td>
                             <% if @user.id == current_user.id %>
-                              <%= link_to "削除", artwork_path(music.id), method: :delete, class:"btn btn-sm btn-success" %>
+                              <%= link_to "削除", artwork_path(music.id), method: :delete, class:"btn btn-sm btn-danger" %>
                             <% end %>
                           </td>
                         </tr>
