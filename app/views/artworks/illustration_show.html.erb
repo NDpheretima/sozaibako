@@ -1,10 +1,12 @@
 <main>
-  <h2>イラスト素材</h2>
-    <table class='table table-hover table-inverse'>
+  <div class='container px-5 px-sm-0'>
+    <div class='row'>
+      <h2 class='m-5'>イラスト</h2>
+      <table class='table table-hover table-inverse'>
       <thead>
         <tr>
           <th></th>
-          <th>イラストタイトル</th>
+          <th>タイトル</th>
           <th>コメント</th>
           <th colspan="3"></th>
         </tr>
@@ -16,15 +18,30 @@
               <%= image_tag illustration.illustration_file.url, size: '100x100' %>
             </td>
             <td>
-              <% if user_signed_in? %>
-                <% if illustration.user_id == current_user.id %>
-                  <%= link_to "編集", illustration_edit_path(illustration.id), class:"btn btn-sm btn-success" %>
-                <% end %>
-                <%= link_to "ダウンロード", illustration_download_path(illustration.id), class:"btn btn-sm btn-success" %>
-              <% end %>
+              <%= illustration.title %>
             </td>
+            <td>
+              <%= illustration.body %>
+            </td>
+              <% if user_signed_in? %>
+                <td>
+                  <% if illustration.user_id == current_user.id %>
+                    <%= link_to "編集", illustration_edit_path(illustration.id), class:"btn btn-sm btn-success" %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if illustration.user.id == current_user.id %>
+                    <%= link_to "削除", artwork_path(illustration.id), method: :delete, class:"btn btn-sm btn-success" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to "ダウンロード", illustration_download_path(illustration.id), class:"btn btn-sm btn-success" %>
+                </td>
+              <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
+    </div>
+  </div>
 </main>

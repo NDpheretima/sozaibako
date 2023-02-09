@@ -10,7 +10,7 @@ class ArtworksController < ApplicationController
   def illustration_show
     @artworks_illustration = Artwork.where(category: "illustration")
   end
-  
+
   def music_show
     @artworks_music = Artwork.where(category: "music")
   end
@@ -37,6 +37,9 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
+    artwork = Artwork.find(params[:id])
+    artwork.destroy
+    redirect_to user_path(artwork.user_id)
   end
 
   def illustration_download

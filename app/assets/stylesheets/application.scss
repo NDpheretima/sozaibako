@@ -16,3 +16,14 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+@font-face {
+  font-family: 'K-Gothic';
+  src: font-url('K-Gothic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {  
+  font-family: 'K-Gothic';
+}
